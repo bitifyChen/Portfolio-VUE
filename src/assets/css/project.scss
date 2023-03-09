@@ -1,0 +1,291 @@
+/*project*/
+main.project {
+  .cards {
+    --card-margin: 5px;
+    flex-wrap: wrap;
+    display: flex;
+    margin-left: calc(var(--card-margin) * -1);
+  }
+  .card {
+    width: calc(50% - var(--card-margin) * 2);
+    padding: 10px;
+    margin: var(--card-margin);
+    position: relative;
+    .info {
+      .title {
+        font-family: "Alexandria", "Noto Sans TC", sans-serif;
+        font-weight: 700;
+        font-size: 15px;
+        padding: 5px 20px;
+        text-align: center;
+      }
+      .type {
+        display: inline-block;
+        padding: 4px 6px;
+        font-size: 12px;
+        background-color: var(--main-color);
+        color: white;
+        letter-spacing: 0.2em;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+    img {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  main.project {
+    .card {
+      width: calc(33% - var(--card-margin) * 2);
+    }
+  }
+}
+@media screen and (min-width: 900px) {
+  main.project {
+    .card {
+      width: calc(25% - var(--card-margin) * 2);
+    }
+  }
+}
+@media screen and (min-width: 1280px) {
+  main.project {
+    .card {
+      width: calc(20% - var(--card-margin) * 2);
+    }
+  }
+}
+/*project-DETAIl*/
+main.project-detail {
+  .main-block {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+  }
+  .project-info {
+    padding: 10px;
+    > .title {
+      margin-left: -10px;
+      h2 {
+        color: var(--main-color);
+        font-family: "Noto Sans TC", sans-serif;
+        font-weight: 900;
+        font-size: 30px;
+        letter-spacing: 0.2em;
+        border: 2px var(--main-color) dashed;
+        padding: 5px 10px;
+      }
+      p {
+        border: 2px var(--main-color) dashed;
+        font-weight: 700;
+        padding: 5px 10px;
+        font-size: 16px;
+        border-top: none;
+        display: inline-block;
+      }
+    }
+    #desc-handler,
+    .btn-desc {
+      display: none;
+    }
+    .descriptions {
+      font-size: 14px;
+      letter-spacing: 0.2em;
+      color: var(--main-color);
+      .title {
+        padding: 5px 10px;
+        font-weight: 600;
+        display: inline-block;
+        margin-bottom: 5px;
+        border: 2px var(--main-color) dashed;
+      }
+      .text {
+        font-weight: 500;
+        line-height: 20px;
+        font-size: 14px;
+        word-break: break-all;
+        p {
+          &::before {
+            content: "";
+            margin-right: 1em;
+          }
+          & + p {
+            margin-top: 10px;
+          }
+        }
+      }
+      .description {
+        margin: 20px 0px;
+      }
+    }
+    a.link {
+      background-color: var(--main-color);
+      display: block;
+      color: white;
+      padding: 10px 20px;
+      font-weight: 900;
+      text-align: center;
+    }
+  }
+  .project-pic {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    --margin: 2px;
+    .col-1,.col-2,.col-3 {
+      width: calc(100% - 2 * var(--margin));
+      margin: var(--margin);
+      vertical-align: baseline;
+    }
+    .col-1 {
+      width: calc(100% / 3 - 2 * var(--margin));
+      object-fit: cover;
+      aspect-ratio: 1/1;
+    }
+    .col-2 {
+      width: calc(100% * 2 / 3 - 2 * var(--margin));
+      object-fit: cover;
+      aspect-ratio: 2/1;
+    }
+    .col-3 {
+      width: calc(100% - 2 * var(--margin));
+    }
+    iframe{
+      width: calc(100% - 2 * var(--margin));
+      aspect-ratio: 16/9;
+      margin: var(--margin);
+    }
+  }
+  .bottom-block {
+    .link {
+      font-family: "Alexandria", "Noto Sans TC", sans-serif;
+      font-size: 20px;
+      padding-left: 20px;
+      position: relative;
+      display: flex;
+      span {
+        display: block;
+        position: absolute;
+        width: 70px;
+        height: 2px;
+        left: 0;
+        bottom: 0;
+        background-color: var(--main-color);
+        &::after {
+          content: "";
+          position: absolute;
+          width: 10px;
+          height: 2px;
+          display: block;
+          background-color: var(--main-color);
+          transform: rotate(-45deg);
+          top: -3px;
+          left: 0;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 767px) {
+  main.project-detail {
+    .project-info {
+      .descriptions {
+        max-height: calc(20px + 27.6px + 2 * 20px);
+        overflow: hidden;
+        transition: max-height 1s linear;
+      }
+      #desc-handler:checked ~ .descriptions {
+        max-height: 200vh;
+        transition: max-height 2s linear;
+      }
+      .btn-desc {
+        position: relative;
+        margin-top: 15px;
+        margin-bottom: 5px;
+        height: 20px;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        &::before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          border-top: 2px dashed black;
+        }
+        p {
+          position: relative;
+          z-index: 2;
+          background-color: black;
+          color: white;
+          font-size: 14px;
+          padding: 0px 10px;
+          line-height: 20px;
+          &::before {
+            content: "More";
+            padding-right: 0.5em;
+          }
+        }
+      }
+      #desc-handler:checked ~ .btn-desc {
+        i {
+          transform: rotate(180deg);
+        }
+        p::before {
+          content: "Close";
+        }
+      }
+      .tags {
+        display: none;
+      }
+    }
+  }
+}
+@media screen and (min-width: 768px) {
+  main.project-detail {
+    .orb-canvas {
+      margin-right: 40%;
+    }
+    .project-block {
+      position: relative;
+      display: flex;
+      .project-info {
+        width: 40%;
+        max-width: 450px;
+        position: sticky;
+        top: 0;
+        height: 100%;
+        order: 1;
+        .descriptions {
+          font-size: 16px;
+          .text {
+            font-weight: 500;
+            line-height: 24px;
+            font-size: 16px;
+          }   
+        }
+      }
+      .project-pic {
+        width: 60%;
+        flex: 1 1 auto;
+      }
+    } 
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      .tag {
+        font-family: "Alexandria", "Noto Sans TC", sans-serif;
+        border: 1px dashed black;
+        color: black;
+        font-size: 14px;
+        padding: 2px 4px;
+        margin-right: 4px;
+        margin-bottom: 4px;
+        opacity: .8;
+      }
+    }
+  }
+}
+

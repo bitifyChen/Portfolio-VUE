@@ -1,0 +1,114 @@
+main.about section {
+  --border-style: 2px dashed black;
+  border-bottom: var(--border-style);
+  border-right: var(--border-style);
+}
+
+main.about section.boxes {
+  display: -ms-grid;
+  display: grid;
+}
+
+main.about section.boxes .box {
+  border-top: var(--border-style);
+  border-left: var(--border-style);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main.about section.boxes .box h3 {
+  font-size: 40px;
+  font-weight: 900;
+  letter-spacing: .2em;
+}
+
+main.about section.boxes .box p {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: .1em;
+}
+
+main.about section.boxes-1 {
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  -ms-grid-rows: 100px 1fr 1fr;
+      grid-template-rows: 100px 1fr 1fr;
+}
+
+main.about section.boxes-1 .box:nth-child(3) {
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3/4;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 3;
+  grid-row: 1/4;
+  background-color: red;
+}
+
+main.about section.boxes-1 .box:nth-child(5) {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 2;
+  grid-row: 2/4;
+  background-color: blue;
+}
+
+@media screen and (min-width: 768px) {
+  main.about .hz {
+    position: fixed;
+    --w: calc(100vw - 50px * 2);
+    --h: calc(100vh - 50px * 2 - 60px - 40px - 10px);
+    width: var(--h);
+    height: var(--w);
+    -webkit-transform-origin: top left;
+            transform-origin: top left;
+    -webkit-transform: rotate(-90deg) translateX(-100%);
+            transform: rotate(-90deg) translateX(-100%);
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+  main.about .hz::-webkit-scrollbar {
+    display: none;
+  }
+  main.about .rotate {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    -webkit-transform-origin: top left;
+            transform-origin: top left;
+    -webkit-transform: rotate(90deg) translateY(-100%);
+            transform: rotate(90deg) translateY(-100%);
+  }
+  main.about section {
+    width: var(--w);
+    height: var(--h);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    overflow-y: auto;
+  }
+}
+/*# sourceMappingURL=about.css.map */
