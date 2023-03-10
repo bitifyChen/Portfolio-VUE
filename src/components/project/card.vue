@@ -20,13 +20,13 @@ const card = defineProps({
 </script>
 
 <template>
-  <a class="card" href="project-detail.html">
+  <RouterLink :to="`/project/${card.id}`" class="card">
     <div class="pic">
-      <img :src="card.banner" alt="" />
+      <img v-lazy="card.banner" alt="" />
     </div>
     <div class="info">
-      <p class="title">{{card.name}}</p>
-      <p class="type">{{card.type}}</p>
+      <p class="title">{{ card.name }}</p>
+      <p class="type">{{ card.type }}</p>
     </div>
-  </a>
+  </RouterLink>
 </template>

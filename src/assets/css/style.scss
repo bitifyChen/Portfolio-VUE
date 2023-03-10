@@ -74,7 +74,6 @@ p.name {
 .main-header {
   max-width: var(--max-width);
   margin: auto;
-  background-color: red;
   position: relative;
   z-index: 999;
   #menu-handler {
@@ -210,10 +209,10 @@ body {
     height: 100%;
     background: url("../img/noise_bg.jpg") repeat left top / 400px;
     mix-blend-mode: overlay;
-    opacity: .4;
+    opacity: 0.4;
   }
-  canvas{
-    opacity: .5;
+  canvas {
+    opacity: 0.5;
   }
 }
 
@@ -245,6 +244,34 @@ main {
     align-items: flex-end;
     .name {
       margin-left: auto;
+    }
+    .link {
+      font-family: "Alexandria", "Noto Sans TC", sans-serif;
+      font-size: 20px;
+      padding-left: 20px;
+      position: relative;
+      display: flex;
+      cursor: pointer;
+      span {
+        display: block;
+        position: absolute;
+        width: 70px;
+        height: 2px;
+        left: 0;
+        bottom: 0;
+        background-color: var(--main-color);
+        &::after {
+          content: "";
+          position: absolute;
+          width: 10px;
+          height: 2px;
+          display: block;
+          background-color: var(--main-color);
+          transform: rotate(-45deg);
+          top: -3px;
+          left: 0;
+        }
+      }
     }
   }
 }
@@ -448,11 +475,8 @@ main.index {
 }
 @media screen and (min-width: 768px) {
   .banner#website {
-   
   }
 }
-
-
 
 /*關於 banner*/
 .banner#about {

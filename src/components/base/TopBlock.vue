@@ -9,9 +9,16 @@ const pageName = ref("");
 onMounted(async () => {
   await router.isReady();
   pageName.value = route.name;
+  if (route.name == 'project-detail') { 
+    pageName.value = 'project'
+  }
 });
 
-watch(route, (to) => {
+watch(route, (to) =>
+{
+  if (to.name == 'project-detail') { 
+    to.name = 'project'
+  }
   typewriter(pageName.value, to.name, pageName);
 });
 
