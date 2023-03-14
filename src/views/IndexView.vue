@@ -1,20 +1,29 @@
 <script setup>
 import { ref, watch } from "vue";
+import { Autoplay, Pagination, Navigation } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/vue";
+
+import "swiper/css/bundle";
 
 import IndexDesign from "@/components/index/IndexDesign.vue";
 import IndexWeb from "@/components/index/IndexWeb.vue";
 import IndexAbout from "@/components/index/IndexAbout.vue";
 
 import { useIndexStore } from "@/stores/index";
-import { Swiper, SwiperSlide } from "swiper/vue";
-import "swiper/css/bundle";
-
 const index = useIndexStore();
+const modules = ref([Pagination, Autoplay, Navigation]);
 
+const swiperInit = ref();
+const onSwiper = (swiper) => {
+  swiperInit.value = swiper;
+};
+const onSlideChange = (swiper) => {
+  index.swiper = swiper.activeIndex;
+};
 watch(
   () => index.swiper,
   (order) => {
-    console.log(order);
+    swiperInit.value.slideTo(order);
   }
 );
 </script>
@@ -24,7 +33,12 @@ watch(
       <Swiper
         :slides-per-view="1"
         :space-between="50"
-        navigation
+        :modules="modules"
+        :autoplay="{
+          delay: 10000,
+          disableOnInteraction: true,
+        }"
+        :navigation="true"
         @swiper="onSwiper"
         @slideChange="onSlideChange"
       >

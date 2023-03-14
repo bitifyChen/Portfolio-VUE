@@ -3,7 +3,7 @@ import { defineStore } from "pinia";
 
 export const useIndexStore = defineStore("index", () => {
   //Swiper
-  const swiper = ref(1)
+  const swiper = ref(0)
 
   //Data
   //-Design
