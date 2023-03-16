@@ -1,7 +1,8 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import VueLazyLoad from 'vue3-lazyload'
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 //Font-awesome
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -25,6 +26,7 @@ const app = createApp(App)
 app.use(createPinia())
 app.use(VueLazyLoad)
 app.use(router)
+app.use(AOS.init())
 app.component("font-awesome-icon", FontAwesomeIcon);
 
 app.mount('#app')

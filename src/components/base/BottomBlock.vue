@@ -22,7 +22,7 @@ const index = useIndexStore();
         Back
       </a>
     </template>
-    
+
     <p class="name">ChenChen</p>
   </div>
 </template>

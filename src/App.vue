@@ -13,7 +13,7 @@ const route = useRoute();
   <main :class="route.name">
     <BgcBlock />
     <TopBlock />
-    <RouterView />
+    <RouterView  data-aos="zoom-out-right" data-aos-offset="0" data-aos-duration="500" data-aos-delay="100" />
     <BottomBlock />
   </main>
 </template>
