@@ -48,8 +48,8 @@ watch(
         <swiper-slide>
           <IndexWeb />
         </swiper-slide>
-        <swiper-slide v-slot="{ isActive }">
-          <IndexAbout :active="isActive" />
+        <swiper-slide>
+          <IndexAbout/>
         </swiper-slide>
       </Swiper>
     </div>

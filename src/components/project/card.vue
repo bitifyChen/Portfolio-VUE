@@ -16,6 +16,10 @@ const card = defineProps({
     type: String,
     default: "",
   },
+  date: {
+    type: Date,
+    default: "2020-01-01",
+  },
 });
 </script>
 

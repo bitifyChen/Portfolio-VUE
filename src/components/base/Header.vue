@@ -21,8 +21,8 @@ watch(route, () => {
     <label class="main-menu" for="menu-handler">
       <ul>
         <li><RouterLink to="/">Home</RouterLink></li>
-        <li><RouterLink to="/about">About</RouterLink></li>
         <li><RouterLink to="/project">Project</RouterLink></li>
+        <li><RouterLink to="/about">About</RouterLink></li>
         <li><RouterLink to="/contact">Contact</RouterLink></li>
       </ul>
     </label>

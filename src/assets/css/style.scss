@@ -649,6 +649,11 @@ main.index {
         color: white;
         font-size: 20px;
         letter-spacing: 0.2em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        line-height: 2em;
+        letter-spacing: .2em;
       }
     }
   }
@@ -696,6 +701,76 @@ main.index {
   .swiper-button-prev {
     &::after {
       content: "<";
+    }
+  }
+}
+
+.custom-select {
+  position: relative;
+  .selected {
+    display: flex;
+    align-items: center;
+    border: 2px solid black;
+    font-weight: 700;
+    font-family: "Alexandria", "Noto Sans TC", sans-serif;
+    cursor: pointer;
+    user-select: none;
+    span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 30px;
+      width: 30px;
+      background-color: black;
+      color: white;
+      font-size: 20px;
+    }
+    p {
+      padding: 0px 20px;
+      letter-spacing: 0.2em;
+      flex: 1 1 auto;
+      text-align: center;
+    }
+  }
+  .dropdown {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    left: 30px;
+    right: 0;
+    top: 100%;
+    z-index: 99;
+    li {
+      background-color: black;
+      color: white;
+      font-weight: 700;
+      font-family: "Alexandria", "Noto Sans TC", sans-serif;
+      line-height: 30px;
+      margin-top: 4px;
+      letter-spacing: 0.2em;
+      cursor: pointer;
+      text-align: center;
+    }
+  }
+  input[type="checkbox"] {
+    display: none;
+  }
+  input[type="checkbox"]:checked {
+    & ~ .dropdown {
+      display: flex;
+      position: absolute;
+    }
+  }
+}
+@media screen and (min-width: 768px) {
+  .custom-select {
+    position: relative;
+    .selected {
+      &:hover {
+        background-color: black;
+        color: white;
+        transition: all 0.3s linear;
+      }
     }
   }
 }

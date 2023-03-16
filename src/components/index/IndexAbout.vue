@@ -1,17 +1,21 @@
 <script setup>
 import { watch } from "vue";
+import { useIndexStore } from "@/stores/index";
+const index = useIndexStore();
 
-const bannerActive = defineProps(["active"]);
-watch(bannerActive, (state) => {
-  if (state) {
-    aboutWriter();
+watch(
+  () => index.swiper,
+  (order) => {
+    if (order == 2) {
+      aboutWriter();
+    }
   }
-});
+);
 
 let aboutText = "設計師Design 前端工程師Front-end engineer 攝影師Photographer";
 aboutText = aboutText + aboutText + aboutText + aboutText;
 let i = 0;
-function aboutWriter() {
+const aboutWriter = () => {
   const bannerAboutP = document.querySelector("#about .bgc p");
   const bannerAbout = document.querySelector("#about");
   bannerAbout.classList.add("active");
@@ -26,20 +30,22 @@ function aboutWriter() {
     i++;
     setTimeout(aboutWriter, 50);
   }
-}
+};
+
 </script>
 
 
 <template>
   <div class="banner" id="about">
     <div class="bgc">
-      {{ bannerActive }}
-      <p>1234</p>
+      <p></p>
     </div>
     <div class="main">
       <div class="more">
         <p>
-          來去瞧瞧來去瞧瞧來去瞧瞧來去瞧瞧來去瞧瞧來去瞧瞧來去瞧瞧來去瞧瞧來去瞧瞧來去瞧瞧來去瞧瞧來去瞧瞧來去瞧瞧來去瞧瞧來去瞧瞧來去瞧瞧來去瞧瞧
+          位於台中 /<br>
+          致力把更多美麗的事物 /<br>
+          呈現在大眾眼前。
         </p>
       </div>
       <div class="pic">

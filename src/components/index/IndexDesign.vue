@@ -1,4 +1,18 @@
 <script setup>
+import { watch } from 'vue';
+import { useIndexStore } from "@/stores/index";
+const index = useIndexStore()
+
+watch(
+  () => index.swiper,
+  (order) => {
+    if (order == 0) { 
+      //Do some...
+    }
+  }
+);
+
+
 </script>
 
 
