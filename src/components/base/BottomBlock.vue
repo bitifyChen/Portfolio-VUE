@@ -1,8 +1,28 @@
 <script setup>
+
+
+
+
+import { ref } from 'vue';
 import { useRoute } from "vue-router";
 import { useIndexStore } from "@/stores/index";
 const route = useRoute();
 const index = useIndexStore();
+const websiteName = ref()
+const getData = () =>
+{ 
+  fetch("https://portfolio.njlab.website/api/info")
+  .then((response) => response.json())
+  .then((data) => {
+    const index = useIndexStore();
+    index.base = data.data
+    websiteName.value = data.data.website_name;
+  })
+  .catch((e) => {
+
+  });
+}
+getData()
 
 </script>
 
@@ -22,8 +42,7 @@ const index = useIndexStore();
         Back
       </a>
     </template>
-
-    <p class="name">ChenChen</p>
+    <p class="name">{{ websiteName }}</p>
   </div>
 </template>
 
