@@ -1,18 +1,6 @@
 <script setup>
-import { watch } from 'vue';
 import { useIndexStore } from "@/stores/index";
 const index = useIndexStore()
-
-watch(
-  () => index.swiper,
-  (order) => {
-    if (order == 0) { 
-      //Do some...
-    }
-  }
-);
-
-
 </script>
 
 
@@ -22,32 +10,17 @@ watch(
       <div class="mask"></div>
       <div class="posters">
         <div class="poster-line r">
-          <img src="@/assets/img/index/ir.png" alt="" />
-          <img src="@/assets/img/index/rocling2022.png" alt="" />
-          <img src="@/assets/img/index/APSEC.png" alt="" />
-          <img src="@/assets/img/index/老喜滷味.png" alt="" />
-          <img src="@/assets/img/index/pa.png" alt="" />
+          <img :src="poster.banner" v-for="poster in index.poster_line_r" :key="poster.id"/>
         </div>
         <div class="poster-line l">
-          <img src="@/assets/img/index/2020coding.png" alt="" />
-          <img src="@/assets/img/index/2021coding.png" alt="" />
-          <img src="@/assets/img/index/2022coding.png" alt="" />
-          <img src="@/assets/img/index/吳班長.png" alt="" />
-          <img src="@/assets/img/index/want.png" alt="" />
+          <img :src="poster.banner" v-for="poster in index.poster_line_l" :key="poster.id"/>
         </div>
       </div>
     </div>
     <div class="info">
       <ul class="tags">
-        <li>Poster <span>海報</span></li>
-        <li>Logo <span>商標</span></li>
-        <li>Key Vision <span>主視覺</span></li>
-        <li>Business Card <span>名片</span></li>
+        <li v-for="work in index.design.work_list" :key="work.id">{{ work.name_en }}<span>{{ work.name }}</span></li>
       </ul>
     </div>
   </div>
 </template>
-
-
-<style scoped>
-</style>

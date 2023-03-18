@@ -13,23 +13,17 @@ watch(
   }
 );
 
-const bannerList = [
-  "https://portfolio.njlab.website/media/img/project/module/project_1/Top_View_Grid.webp",
-  "https://portfolio.njlab.website/media/img/project/module/project_18/Top_View_Grid.webp",
-  "https://portfolio.njlab.website/media/img/project/module/project_17/Top_View_Grid.webp",
-];
 const bannerIndex = ref(0);
 
 const bannerChange = () => {
   setInterval(() => {
     bannerIndex.value++;
-    while (bannerIndex.value == bannerList.length) {
+    while (bannerIndex.value == index.website.item_list.length) {
       bannerIndex.value = 0;
     }
   }, 4000);
 };
 </script>
-
 
 <template>
   <div class="banner" id="website">
@@ -38,19 +32,16 @@ const bannerChange = () => {
         <div class="mask"></div>
         <img
           :class="[index == bannerIndex ? 'active' : 'leave']"
-          :key="banner"
-          v-lazy="banner"
+          :key="banner.id"
+          v-lazy="banner.bannerL"
           alt=""
-          v-for="(banner, index) in bannerList"
+          v-for="(banner, index) in index.website.item_list"
         />
       </div>
     </div>
     <div class="info">
       <ul class="tags">
-        <li>One-Page <span>一頁式</span></li>
-        <li>CMS <span>管理系統</span></li>
-        <li>Personal <span>個人形象</span></li>
-        <li>Corporate <span>企業形象</span></li>
+        <li v-for="work in index.website.work_list" :key="work.id">{{ work.name_en }}<span>{{ work.name }}</span></li>
       </ul>
     </div>
   </div>

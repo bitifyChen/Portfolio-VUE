@@ -12,7 +12,7 @@ watch(
   }
 );
 
-let aboutText = "設計師Design 前端工程師Front-end engineer 攝影師Photographer";
+let aboutText = index.about.bgc.word;
 aboutText = aboutText + aboutText + aboutText + aboutText;
 let i = 0;
 const aboutWriter = () => {
@@ -20,7 +20,7 @@ const aboutWriter = () => {
   const bannerAbout = document.querySelector("#about");
   bannerAbout.classList.add("active");
   if (i < aboutText.length) {
-    let textMap = "設計前端攝影";
+    let textMap = index.about.bgc.word_mark;
     let text = aboutText[i];
     if (textMap.includes(text)) {
       bannerAboutP.innerHTML += `<span>${text}</span>`;
@@ -31,7 +31,6 @@ const aboutWriter = () => {
     setTimeout(aboutWriter, 50);
   }
 };
-
 </script>
 
 
@@ -42,23 +41,28 @@ const aboutWriter = () => {
     </div>
     <div class="main">
       <div class="more">
-        <p>
-          位於台中 /<br>
-          致力把更多美麗的事物 /<br>
-          呈現在大眾眼前。
+        <p v-html="index.about.motto">
         </p>
       </div>
       <div class="pic">
-        <img src="https://via.placeholder.com/400x600" alt="" />
+        <img :src="index.about.info.photo" alt="" />
       </div>
       <div class="text">
-        <h2>Chen Pin Hung<span>陳品宏</span></h2>
+        <h2>
+          {{ index.about.info.name_en }}<span>{{ index.about.info.name }}</span>
+        </h2>
       </div>
     </div>
     <div class="btn">
-      <a href="about.html" class="link">
+      <RouterLink to="/about" class="link">
         關於我們<i class="fa-solid fa-circle-right"></i>
-      </a>
+      </RouterLink>
     </div>
   </div>
 </template>
+
+<style scope>
+.pic {
+  background-color: rgba(0,0,0,.5);
+}
+</style>
