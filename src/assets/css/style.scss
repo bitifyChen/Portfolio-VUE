@@ -92,6 +92,7 @@ p.name {
     flex-direction: column;
     cursor: crosshair;
     li {
+      opacity: 0;
       a {
         display: block;
         padding: 10px 20px;
@@ -124,7 +125,7 @@ p.name {
       display: block;
       position: absolute;
       background-color: var(--main-color);
-      transition: all 1s;
+      transition: all .8s;
     }
     span:nth-child(1) {
       width: 80%;
@@ -176,6 +177,18 @@ p.name {
   #menu-handler:checked ~ .main-menu {
     display: flex;
     backdrop-filter: blur(8px);
+    li:nth-child(1){
+      animation: menuShow .5s 0s forwards;
+    }
+    li:nth-child(2){
+      animation: menuShow .5s .3s forwards;
+    }
+    li:nth-child(3){
+      animation: menuShow .5s .6s forwards;
+    }
+    li:nth-child(4){
+      animation: menuShow .5s .9s forwards;
+    }
   }
 }
 
@@ -190,6 +203,14 @@ p.name {
   }
 }
 
+@keyframes menuShow {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 /*Main*/
 body {
   position: relative;
@@ -653,7 +674,7 @@ main.index {
         justify-content: center;
         align-items: center;
         line-height: 2em;
-        letter-spacing: .2em;
+        letter-spacing: 0.2em;
       }
     }
   }

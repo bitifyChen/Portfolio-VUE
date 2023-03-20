@@ -81,8 +81,3 @@ const { data } = useProjectDetailStore();
     </div>
   </div>
 </template>
-
-
-<style scoped>
-
-</style>

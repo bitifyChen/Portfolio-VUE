@@ -45,7 +45,3 @@ const projects = useProjectsStore();
     </div>
   </div>
 </template>
-
-
-<style scoped>
-</style>

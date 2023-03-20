@@ -11,7 +11,7 @@ const index = useIndexStore();
 const websiteName = ref()
 const getData = () =>
 { 
-  fetch("https://portfolio.njlab.website/api/info")
+  fetch("https://chenchenworkshop.com/api/info")
   .then((response) => response.json())
   .then((data) => {
     const index = useIndexStore();
@@ -42,7 +42,9 @@ getData()
         Back
       </a>
     </template>
-    <p class="name">{{ websiteName }}</p>
+    <RouterLink to="/">
+      <p class="name">{{ websiteName }}</p>
+    </RouterLink>
   </div>
 </template>
 

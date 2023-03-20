@@ -12,7 +12,7 @@ const index = useIndexStore();
 const { data } = useAboutStore();
 
 onMounted(() => {
-  fetch("https://portfolio.njlab.website/api/info")
+  fetch("https://chenchenworkshop.com/api/info")
     .then((response) => response.json())
     .then((data) => {
       index.base = ref(data.data);
@@ -21,7 +21,6 @@ onMounted(() => {
       console.log(err);
     });
 });
-
 </script>
 
 
@@ -99,5 +98,11 @@ onMounted(() => {
 <style scoped>
 .swiper-slide {
   width: auto;
+}
+.swiper {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: flex !important;
 }
 </style>

@@ -114,6 +114,10 @@ p.name {
   cursor: crosshair;
 }
 
+.main-header .main-menu li {
+  opacity: 0;
+}
+
 .main-header .main-menu li a {
   display: block;
   padding: 10px 20px;
@@ -148,8 +152,8 @@ p.name {
   display: block;
   position: absolute;
   background-color: var(--main-color);
-  -webkit-transition: all 1s;
-  transition: all 1s;
+  -webkit-transition: all .8s;
+  transition: all .8s;
 }
 
 .main-header .hb span:nth-child(1) {
@@ -214,12 +218,50 @@ p.name {
           backdrop-filter: blur(8px);
 }
 
+.main-header #menu-handler:checked ~ .main-menu li:nth-child(1) {
+  -webkit-animation: menuShow .5s 0s forwards;
+          animation: menuShow .5s 0s forwards;
+}
+
+.main-header #menu-handler:checked ~ .main-menu li:nth-child(2) {
+  -webkit-animation: menuShow .5s .3s forwards;
+          animation: menuShow .5s .3s forwards;
+}
+
+.main-header #menu-handler:checked ~ .main-menu li:nth-child(3) {
+  -webkit-animation: menuShow .5s .6s forwards;
+          animation: menuShow .5s .6s forwards;
+}
+
+.main-header #menu-handler:checked ~ .main-menu li:nth-child(4) {
+  -webkit-animation: menuShow .5s .9s forwards;
+          animation: menuShow .5s .9s forwards;
+}
+
 @media screen and (min-width: 768px) {
   .main-header .hb {
     width: 60px;
     top: 50px;
     right: 50px;
     --bar-hight: 10px;
+  }
+}
+
+@-webkit-keyframes menuShow {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes menuShow {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
@@ -807,7 +849,7 @@ main.index .banner-type .type.active {
         -ms-flex-align: center;
             align-items: center;
     line-height: 2em;
-    letter-spacing: .2em;
+    letter-spacing: 0.2em;
   }
 }
 

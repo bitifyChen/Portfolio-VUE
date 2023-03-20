@@ -17,9 +17,9 @@ const router = createRouter({
         try {
           const index = useIndexStore();
           const [response1, response2, response3] = await Promise.all([
-            fetch("https://portfolio.njlab.website/api/index/design"),
-            fetch("https://portfolio.njlab.website/api/index/website"),
-            fetch("https://portfolio.njlab.website/api/index/about"),
+            fetch("https://chenchenworkshop.com/api/index/design"),
+            fetch("https://chenchenworkshop.com/api/index/website"),
+            fetch("https://chenchenworkshop.com/api/index/about"),
           ]);
           const data1 = await response1.json();
           const data2 = await response2.json();
@@ -38,7 +38,7 @@ const router = createRouter({
       name: "project",
       component: () => import("@/views/ProjectView.vue"),
       beforeEnter: (to, from, next) => {
-        fetch("https://portfolio.njlab.website/api/project/list")
+        fetch("https://chenchenworkshop.com/api/project/list")
           .then((response) => response.json())
           .then((data) => {
             const project = useProjectsStore();
@@ -56,7 +56,7 @@ const router = createRouter({
       component: () => import("@/views/ProjectDetailView.vue"),
       beforeEnter: (to, from, next) => {
         const projectID = to.params.id;
-        fetch(`https://portfolio.njlab.website/api/project/detail/${projectID}`)
+        fetch(`https://chenchenworkshop.com/api/project/detail/${projectID}`)
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
@@ -83,7 +83,7 @@ const router = createRouter({
       name: "about",
       component: () => import("@/views/AboutView.vue"),
       beforeEnter: (to, from, next) => {
-        fetch("https://portfolio.njlab.website/api/about")
+        fetch("https://chenchenworkshop.com/api/about")
           .then((response) => response.json())
           .then((data) => {
             const about = useAboutStore();

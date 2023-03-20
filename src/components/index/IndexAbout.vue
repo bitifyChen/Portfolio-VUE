@@ -61,7 +61,7 @@ const aboutWriter = () => {
   </div>
 </template>
 
-<style scope>
+<style scoped>
 .pic {
   background-color: rgba(0,0,0,.5);
 }

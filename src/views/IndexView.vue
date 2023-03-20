@@ -55,7 +55,7 @@ watch(
     </div>
   </div>
 </template>
-<style scope>
+<style scoped>
 .swiper {
   height: 100%;
   width: 100%;
