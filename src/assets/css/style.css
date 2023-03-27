@@ -224,18 +224,18 @@ p.name {
 }
 
 .main-header #menu-handler:checked ~ .main-menu li:nth-child(2) {
-  -webkit-animation: menuShow .5s .3s forwards;
-          animation: menuShow .5s .3s forwards;
+  -webkit-animation: menuShow .5s .2s forwards;
+          animation: menuShow .5s .2s forwards;
 }
 
 .main-header #menu-handler:checked ~ .main-menu li:nth-child(3) {
-  -webkit-animation: menuShow .5s .6s forwards;
-          animation: menuShow .5s .6s forwards;
+  -webkit-animation: menuShow .5s .4s forwards;
+          animation: menuShow .5s .4s forwards;
 }
 
 .main-header #menu-handler:checked ~ .main-menu li:nth-child(4) {
-  -webkit-animation: menuShow .5s .9s forwards;
-          animation: menuShow .5s .9s forwards;
+  -webkit-animation: menuShow .5s .6s forwards;
+          animation: menuShow .5s .6s forwards;
 }
 
 @media screen and (min-width: 768px) {

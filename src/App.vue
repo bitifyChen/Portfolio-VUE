@@ -13,7 +13,12 @@ const route = useRoute();
   <main :class="route.name">
     <BgcBlock />
     <TopBlock />
-    <RouterView  data-aos="zoom-out-right" data-aos-offset="0" data-aos-duration="500" data-aos-delay="100" />
+    <RouterView
+      data-aos="zoom-out-right"
+      data-aos-offset="0"
+      data-aos-duration="500"
+      data-aos-delay="100"
+    />
     <BottomBlock />
   </main>
 </template>
@@ -23,14 +28,15 @@ img[lazy="loading"] {
   animation: imgLoading 4s infinite;
 }
 @keyframes imgLoading {
-    0%,100% {
-      background-color:rgba(0, 0, 0, .5);
-    }
-    50% {
-      background-color:rgba(0, 0, 0, .2);
-    }
-    100% {
-      background-color:rgba(0, 0, 0, .5);
-    }
+  0%,
+  100% {
+    background-color: rgba(0, 0, 0, 0.5);
   }
+  50% {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
 </style>

@@ -5,6 +5,7 @@ import { useIndexStore } from "@/stores/index";
 import { useProjectsStore } from "@/stores/projects";
 import { useProjectDetailStore } from "@/stores/projectDetail";
 import { useAboutStore } from "@/stores/about";
+import { useWebStore } from "@/stores/web";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -27,6 +28,7 @@ const router = createRouter({
           index.design = data1.data;
           index.website = data2.data;
           index.about = data3.data;
+          index.swiper = 0;
           next();
         } catch (error) {
           console.error(error);
@@ -102,5 +104,12 @@ const router = createRouter({
     },
   ],
 });
+
+router.beforeEach((to, from) => {
+  const web = useWebStore();
+  web.loading = true;
+});
+
+
 
 export default router;
